@@ -1,0 +1,27 @@
+from queue import Queue
+progresses = [93, 30, 55]
+speeds = [1, 30, 5]
+
+def solution(progresses, speeds):
+    que = Queue()
+    answer = Queue()
+    for i in range(0, len(progresses)):
+        if (100 - progresses[i]) % speeds[i] > 1:
+            que.put(((100 - progresses[i]) / speeds[i])+1)
+        else:   
+            que.put((100 - progresses[i]) / speeds[i])
+    n = que.get()
+    
+    while que != []:
+        temp = 1
+        if n >= que[0]:
+            while n >= que[0]:
+                temp = temp + 1
+                n = que.get()
+            answer.put(temp)
+        else:
+            answer.put(temp)
+    
+    return answer
+
+print(solution(progresses, speeds))
