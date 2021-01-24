@@ -14,7 +14,7 @@ def solution(scoville, K):
         count = count + 1
     return count
 
-print(solution([1, 0], 1))
+print(solution([10,2,3,5,7,9,11], 3))
 
 
 '''
